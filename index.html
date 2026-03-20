@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elementor #2345 - White Global Argentina</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@400;500;600;700;800;900&family=Montserrat:wght@900&family=Konkhmer+Sleokchher&display=swap');
+        
+        :root {
+            --ast-global-color-0: #ffd936;
+            --ast-global-color-1: #dab200;
+            --ast-global-color-2: #536942;
+            --ast-global-color-3: rgba(82,104,64,0.75);
+            --ast-global-color-4: #f6f8f5;
+            --ast-global-color-5: #ffffff;
+            --ast-global-color-6: rgba(82,104,64,0.8);
+            --ast-global-color-7: #000000;
+            --ast-global-color-8: rgba(82,104,64,0.3);
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: #F3F3F3;
+            color: #000000;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #ffffff;
+            border-bottom: 1px solid #eaeaea;
+        }
+        .nav-link {
+            color: var(--ast-global-color-2);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        .nav-link:hover {
+            color: var(--ast-global-color-1);
+        }
+
+    /* Hero Section */
+    .hero-section {
+        background: linear-gradient(140deg, rgba(9,176,247,1) 0%, rgba(120,204,46,1) 25%, rgba(255,73,221,1) 50%, rgba(255,187,0,1) 77%, rgba(153,255,0,1) 100%);
+        height: 100vh;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .hero-title {
+        font-family: 'Montserrat', sans-serif;
+        font-size: clamp(80px, 15vw, 200px);
+        font-weight: 900;
+        color: #ffffff;
+        text-transform: uppercase;
+        line-height: 0.85;
+        text-align: right;
+        letter-spacing: -2px;
+        width: 100%;
+        padding-right: 15%;
+    }
+    .hero-btn {
+        background: linear-gradient(180deg, rgb(135, 252, 112) 0%, rgb(11, 211, 24) 100%);
+        color: #ffffff;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 500;
+        padding: 15px 46px;
+        border-radius: 5px;
+        box-shadow: 0px 7px 15px rgba(0,0,0,0.25);
+        transition: all 0.3s;
+        display: inline-block;
+    }
+    .hero-btn:hover {
+        background: linear-gradient(180deg, rgb(255, 149, 0) 0%, rgb(255, 94, 58) 100%);
+    }
+    .hero-gif {
+        width: 450px;
+        max-width: 90vw;
+        z-index: 20;
+        position: absolute;
+        top: 55%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        animation: float 6s ease-in-out infinite;
+    }
+    @keyframes float {
+        0% { transform: translate(-50%, calc(-50% - 10px)); }
+        50% { transform: translate(-50%, calc(-50% + 10px)); }
+        100% { transform: translate(-50%, calc(-50% - 10px)); }
+    }
+
+    /* Custom Bubble Cursor */
+    .hero-section {
+        cursor: none;
+    }
+    .bubble-cursor {
+        position: fixed;
+        width: 155px;
+        height: 155px;
+        background-image: url('https://whiteglobalmarketing.co/wp-content/uploads/revslider/Glossy---Creative-WebGL-Slider-Template/bubble.png');
+        background-size: cover;
+        background-position: center;
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 9999;
+        transform: translate(-50%, -50%) scale(0.5);
+        opacity: 0;
+        transition: opacity 0.3s, transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .bubble-cursor.active {
+        opacity: 0.9;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+        /* Features */
+        .features-section {
+            background-color: #ffffff;
+            padding: 70px 20px;
+        }
+        .feature-icon {
+            color: #0D6F17;
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+        .feature-title {
+            color: #217B13;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .feature-desc {
+            color: #000000;
+            font-size: 16px;
+        }
+
+        /* Video Section */
+        .video-section {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+            background: #ffffff;
+        }
+        .video-section video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .video-overlay {
+            position: absolute;
+            bottom: 10%;
+            left: 5%;
+            z-index: 10;
+        }
+        .video-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 110px;
+            font-weight: 600;
+            color: #00A953;
+            line-height: 0.9;
+            letter-spacing: -0.05em;
+        }
+        .video-subtitle {
+            font-family: 'Arial', sans-serif;
+            font-size: 15px;
+            color: #096F13;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        /* Big Text Section */
+        .big-text-section {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #ffffff;
+            position: relative;
+            overflow: hidden;
+        }
+        .text-sakergrinder {
+            font-family: 'Inter', sans-serif;
+            font-size: 162px;
+            font-weight: 600;
+            letter-spacing: -0.05em;
+            background: linear-gradient(180deg, #FFFFFF 70%, #9C9C9C 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: absolute;
+            z-index: 1;
+        }
+        .text-saker {
+            font-family: 'Konkhmer Sleokchher', sans-serif;
+            font-size: 170px;
+            font-weight: 800;
+            color: #218E43;
+            -webkit-text-stroke: 1px #ffffff;
+            position: absolute;
+            z-index: 2;
+        }
+
+        /* Products Grid */
+        .products-section {
+            padding: 100px 5%;
+            background: #ffffff;
+        }
+        .products-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+        .products-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 100px;
+            font-weight: 600;
+            color: #E073CA;
+            line-height: 0.9;
+            letter-spacing: -0.05em;
+        }
+        .btn-outline {
+            border: 1px solid #000;
+            border-radius: 50px;
+            padding: 15px 30px;
+            color: #000;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s;
+        }
+        .btn-outline:hover {
+            background: #000;
+            color: #fff;
+        }
+        
+        .product-card {
+            background: #D5D5D5;
+            border-radius: 20px;
+            padding: 15px;
+            text-align: center;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        .product-card:hover {
+            background: #ffffff;
+            box-shadow: 0px 0px 40px rgba(0,0,0,0.1);
+        }
+        .product-img-wrapper {
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 15px;
+            position: relative;
+        }
+        .product-img-wrapper img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        .product-card:hover .product-img-wrapper img {
+            transform: scale(1.05);
+        }
+        .buy-now-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.8);
+            background: #ffffff;
+            color: #000000;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: bold;
+            opacity: 0;
+            transition: all 0.3s;
+            z-index: 10;
+        }
+        .product-card:hover .buy-now-btn {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+        .product-name {
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            font-weight: 500;
+            color: #ffffff;
+            margin-bottom: 5px;
+        }
+        .product-price {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: #ffffff;
+        }
+        .product-card:hover .product-name,
+        .product-card:hover .product-price {
+            color: #000000;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: #ffffff;
+            padding: 50px 5%;
+        }
+        .test-card {
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0px 0px 40px rgba(0,0,0,0.06);
+            margin-bottom: 20px;
+        }
+        .stars {
+            color: #F7DC4F;
+            margin-bottom: 10px;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: #F9FAFB;
+            padding: 100px 0;
+            text-align: center;
+        }
+        .cta-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 37px;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 30px;
+        }
+        .cta-btn {
+            background: #000000;
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            padding: 15px 30px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+
+        /* Floating Menu */
+        .floating-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: #1A7F3E;
+            z-index: 1000;
+            display: flex;
+            transform: translateX(-100%);
+            transition: transform 0.5s ease;
+        }
+        .floating-menu.active {
+            transform: translateX(0);
+        }
+        .menu-left {
+            width: 50%;
+            padding: 5%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .menu-right {
+            width: 50%;
+            background-size: cover;
+            background-position: center;
+            transition: background-image 0.3s;
+        }
+        .menu-item {
+            font-family: 'Poppins', sans-serif;
+            font-size: 48px;
+            font-weight: 600;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 20px;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        .menu-item:hover {
+            color: #ffffff;
+        }
+        .close-menu {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            background: #fff;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar fixed w-full z-50 h-20 flex items-center justify-between px-8">
+        <div class="flex items-center gap-4">
+            <img src="https://whiteglobalmarketing.co/wp-content/uploads/2025/10/logoWGM-60x50.jpg" alt="WGM Logo" class="h-12">
+        </div>
+        <div class="hidden md:flex gap-8">
+            <a href="#" class="nav-link">Home</a>
+            <a href="#" class="nav-link">Portafolio</a>
+            <a href="#" class="nav-link">Paquetes</a>
+            <a href="#" class="nav-link">Contacto</a>
+        </div>
+        <button id="menuToggle" class="bg-yellow-400 p-2 rounded-full w-10 h-10 flex items-center justify-center">
+            <i class="fas fa-bars text-white"></i>
+        </button>
+    </nav>
+
+    <!-- Floating Fullscreen Menu -->
+    <div id="fullMenu" class="floating-menu">
+        <div class="menu-left">
+            <div class="menu-item" data-bg="https://whiteglobalmarketing.co/wp-content/uploads/2025/12/¡Presentamos-el-picador-electrico-Kush-✨🌱La-forma-mas-facil-y-rapida-de-preparar.-Con-su-disen-1.jpg" data-color="#1A7F3E">Verde</div>
+            <div class="menu-item" data-bg="https://whiteglobalmarketing.co/wp-content/uploads/2025/12/🔥-¡Conoce-a-Blaze-el-grinder-rojo-que-se-lleva-todas-las-miradas-Su-diseno-moderno-y-potencia.jpg" data-color="#D00A36">Rojo</div>
+            <div class="menu-item" data-bg="https://whiteglobalmarketing.co/wp-content/uploads/2025/12/✨-Midnight-✨El-ultimo-picador-electrico-de-la-coleccion-en-un-elegante-y-sofisticado-negro-prof.jpg" data-color="#8C8C8C">Negro</div>
+            <div class="menu-item" data-bg="https://whiteglobalmarketing.co/wp-content/uploads/2025/12/Presentamos-Purple-Haze-🌟Descubre-nuestro-nuevo-picador-electronico-en-un-vibrante-color-viole-1.jpg" data-color="#43044F">Morado</div>
+            <div class="menu-item" data-bg="https://whiteglobalmarketing.co/wp-content/uploads/2025/12/🌟-Descubre-el-Grinder-Electrico-Gold-Kush-🌟El-complemento-perfecto-para-tus-sesiones.-Con-su-a.jpg" data-color="#FF6700">Amarillo</div>
+            <div class="menu-item" data-bg="https://whiteglobalmarketing.co/wp-content/uploads/2025/12/🌌-¡Descubre-el-grinder-electronico-Blue-Dream-💙🔌-Ideal-para-quienes-buscan-calidad-y-estilo-1.jpg" data-color="#2367FF">Azul</div>
+        </div>
+        <div id="menuRightBg" class="menu-right" style="background-image: url('https://whiteglobalmarketing.co/wp-content/uploads/2025/12/¡Presentamos-el-picador-electrico-Kush-✨🌱La-forma-mas-facil-y-rapida-de-preparar.-Con-su-disen-1.jpg');"></div>
+        <div id="closeMenu" class="close-menu">
+            <i class="fas fa-times text-xl"></i>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <!-- Centered Text (Behind) -->
+        <div class="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
+            <h1 class="hero-title">BUEN<br>GRINDER<br>BUEN<br>VIAJE</h1>
+        </div>
+
+        <!-- Product Image (Front) -->
+        <img src="https://whiteglobalmarketing.co/wp-content/uploads/2025/12/Untitled-design-1.gif" alt="Grinder GIF" class="hero-gif">
+
+        <!-- Comprar Button (Bottom Left) -->
+        <div class="absolute bottom-[10%] left-[5%] z-30">
+            <a href="#productos" class="hero-btn">COMPRAR</a>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features-section grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div class="flex items-center gap-4">
+            <i class="fas fa-box-open feature-icon"></i>
+            <div>
+                <h5 class="feature-title">Envio gratis</h5>
+                <p class="feature-desc">En pedidos superiores a $800</p>
+            </div>
+        </div>
+        <div class="flex items-center gap-4">
+            <i class="far fa-heart feature-icon"></i>
+            <div>
+                <h5 class="feature-title">Calidad nacional</h5>
+                <p class="feature-desc">Envios a toda la república</p>
+            </div>
+        </div>
+        <div class="flex items-center gap-4">
+            <i class="fas fa-box feature-icon"></i>
+            <div>
+                <h5 class="feature-title">Empaque seguro</h5>
+                <p class="feature-desc">Protección multicapa</p>
+            </div>
+        </div>
+        <div class="flex items-center gap-4">
+            <i class="fas fa-comment-dots feature-icon"></i>
+            <div>
+                <h5 class="feature-title">Soporte 24/7</h5>
+                <p class="feature-desc">Siempre listos para ayudarte</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section">
+        <video autoplay muted loop playsinline>
+            <source src="https://whiteglobalmarketing.co/wp-content/uploads/2025/12/Creacion_de_Video_Cinematografico_de_Productos-1.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay">
+            <h2 class="video-title">Silencioso. Preciso. Necesario.</h2>
+            <p class="video-subtitle">No cambia lo que hacés. Cambia cómo arranca.</p>
+        </div>
+    </section>
+
+    <!-- Big Text Section -->
+    <section class="big-text-section">
+        <h2 class="text-sakergrinder">sakergrinder</h2>
+        <h2 class="text-saker">SAKER</h2>
+        <img src="https://whiteglobalmarketing.co/wp-content/uploads/2025/12/WhatsApp-Image-2025-12-29-at-15.41.21-3-796x1024.jpeg" class="absolute left-[10%] top-[20%] h-[300px] rounded-2xl z-10 shadow-2xl" alt="Grinder">
+        <img src="https://whiteglobalmarketing.co/wp-content/uploads/2025/12/WhatsApp_Image_2025-12-29_at_20.10.21-removebg-preview.png" class="absolute right-[10%] top-[10%] h-[280px] z-10" alt="Grinder">
+    </section>
+
+    <!-- Big Text Section 2 -->
+    <section class="big-text-section bg-gray-100">
+        <h2 class="text-sakergrinder">GRINDER</h2>
+        <h2 class="text-saker">GRINDER</h2>
+        <img src="https://whiteglobalmarketing.co/wp-content/uploads/2025/12/WhatsApp-Image-2025-12-29-at-12.50.34-AM-796x1024.jpeg" class="absolute right-[20%] top-[10%] h-[400px] rounded-2xl z-10 shadow-2xl" alt="Grinder">
+    </section>
+
+    <!-- Products Section -->
+    <section id="productos" class="products-section">
+        <div class="products-header flex-col md:flex-row">
+            <h2 class="products-title">Compra el tuyo</h2>
+            <a href="#" class="btn-outline mt-4 md:mt-0">Todos los modelos</a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Azul -->
+            <div class="product-card">
+                <div class="product-img-wrapper">
+                    <img src="https://whiteglobalmarketing.co/wp-content/uploads/2025/12/WhatsApp-Image-2025-12-29-at-12.52.52-AM-1-796x1024.jpeg" alt="Azul">
+                    <a href="#" class="buy-now-btn">Buy Now</a>
+                </div>
+                <h3 class="product-name">Saker color azul</h3>
+                <p class="product-price">$12.95</p>
+            </div>
+            <!-- Amarillo -->
+            <div class="product-card">
+                <div class="product-img-wrapper">
+                    <img src="https://whiteglobalmarketing.co/wp-content/uploads/2025/12/WhatsApp-Image-2025-12-29-at-1.10.11-AM-1-796x1024.jpeg" alt="Amarillo">
+                    <a href="#" class="buy-now-btn">Buy Now</a>
+                </div>
+                <h3 class="product-name">Saker color amarillo</h3>
+                <p class="product-price">$10.55</p>
+            </div>
+            <!-- Negro -->
+            <div class="product-card">
+                <div class="product-img-wrapper">
+                    <img src="https://whiteglobalmarketing.co/wp-content/uploads/2025/12/WhatsApp-Image-2025-12-29-at-12.31.08-AM-2-796x1024.jpeg" alt="Negro">
+                    <a href="#" class="buy-now-btn">Buy Now</a>
+                </div>
+                <h3 class="product-name">Saker color negro</h3>
+                <p class="product-price">$18.95</p>
+            </div>
+            <!-- Verde -->
+            <div class="product-card">
+                <div class="product-img-wrapper">
+                    <img src="https://whiteglobalmarketing.co/wp-content/uploads/2025/12/WhatsApp-Image-2025-12-29-at-12.50.35-AM-1-796x1024.jpeg" alt="Verde">
+                    <a href="#" class="buy-now-btn">Buy Now</a>
+                </div>
+                <h3 class="product-name">Saker color verde</h3>
+                <p class="product-price">$10.49</p>
+            </div>
+            <!-- Morado -->
+            <div class="product-card">
+                <div class="product-img-wrapper">
+                    <img src="https://whiteglobalmarketing.co/wp-content/uploads/2025/12/WhatsApp-Image-2025-12-29-at-15.41.21-2-796x1024.jpeg" alt="Morado">
+                    <a href="#" class="buy-now-btn">Buy Now</a>
+                </div>
+                <h3 class="product-name">Saker color morado</h3>
+                <p class="product-price">$20.95</p>
+            </div>
+            <!-- Rojo -->
+            <div class="product-card">
+                <div class="product-img-wrapper">
+                    <img src="https://whiteglobalmarketing.co/wp-content/uploads/2025/12/WhatsApp-Image-2025-12-29-at-15.41.21-1-796x1024.jpeg" alt="Rojo">
+                    <a href="#" class="buy-now-btn">Buy Now</a>
+                </div>
+                <h3 class="product-name">Saker color rojo</h3>
+                <p class="product-price">$15.95</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="test-card">
+            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+            <p class="font-bold mb-2">Martín G. – Buenos Aires</p>
+            <p class="text-sm text-gray-600">La verdad que me sorprendió. Pensé que iba a ser medio gimmick, pero muele parejo y rápido. Lo uso casi todos los días y la batería aguanta bastante. Muy cómodo para no andar desarmando grinders manuales. Lo volvería a comprar.</p>
+        </div>
+        <div class="test-card">
+            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+            <p class="font-bold mb-2">Lucas R. – Córdoba</p>
+            <p class="text-sm text-gray-600">Funciona excelente. Metés la hierba, apretás el botón y listo. No hace ruido molesto y no deja pedazos grandes. Se nota que es de buena calidad. Ideal si fumás seguido y querés algo práctico.</p>
+        </div>
+        <div class="test-card">
+            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div>
+            <p class="font-bold mb-2">Nicolás P. – Rosario</p>
+            <p class="text-sm text-gray-600">Muy buen producto. Tritura bien y no se traba. Le pongo 4 estrellas porque me hubiese gustado que sea un poco más grande, pero en funcionamiento cumple perfecto. Muy recomendable igual.</p>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <h2 class="cta-title">Consigue tu grinder</h2>
+        <a href="#productos" class="cta-btn">COMPRAR AHORA</a>
+    </section>
+
+    <!-- Footer Image -->
+    <div class="w-full bg-white text-center pb-10">
+        <img src="https://whiteglobalmarketing.co/wp-content/uploads/2025/12/Untitled-design-1024x107.png" alt="Footer Design" class="mx-auto w-full max-w-4xl px-4">
+    </div>
+
+    <script>
+        // Menu functionality
+        const menuToggle = document.getElementById('menuToggle');
+        const closeMenu = document.getElementById('closeMenu');
+        const fullMenu = document.getElementById('fullMenu');
+        const menuItems = document.querySelectorAll('.menu-item');
+        const menuRightBg = document.getElementById('menuRightBg');
+
+        menuToggle.addEventListener('click', () => {
+            fullMenu.classList.add('active');
+        });
+
+        closeMenu.addEventListener('click', () => {
+            fullMenu.classList.remove('active');
+        });
+
+        menuItems.forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                const bg = item.getAttribute('data-bg');
+                const color = item.getAttribute('data-color');
+                menuRightBg.style.backgroundImage = `url('${bg}')`;
+                fullMenu.style.backgroundColor = color;
+            });
+        });
+
+        // Bubble Cursor Effect
+        const heroSection = document.querySelector('.hero-section');
+        const bubbleCursor = document.createElement('div');
+        bubbleCursor.classList.add('bubble-cursor');
+        document.body.appendChild(bubbleCursor);
+
+        let cursorX = 0;
+        let cursorY = 0;
+        let bubbleX = 0;
+        let bubbleY = 0;
+
+        heroSection.addEventListener('mousemove', (e) => {
+            cursorX = e.clientX;
+            cursorY = e.clientY;
+        });
+
+        heroSection.addEventListener('mouseenter', () => {
+            bubbleCursor.classList.add('active');
+        });
+
+        heroSection.addEventListener('mouseleave', () => {
+            bubbleCursor.classList.remove('active');
+        });
+
+        // Smooth follow effect
+        function animateBubble() {
+            bubbleX += (cursorX - bubbleX) * 0.15;
+            bubbleY += (cursorY - bubbleY) * 0.15;
+            bubbleCursor.style.left = bubbleX + 'px';
+            bubbleCursor.style.top = bubbleY + 'px';
+            requestAnimationFrame(animateBubble);
+        }
+        animateBubble();
+    </script>
+
+</body>
+</html>
